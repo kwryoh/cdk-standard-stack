@@ -1,8 +1,8 @@
 {
-  "name": "cdk-standard-stack",
+  "name": "kwr-cdk-sample-20220722",
   "version": "0.1.0",
   "bin": {
-    "cdk-standard-stack": "bin/cdk-standard-stack.js"
+    "cdk-standard-stack": "bin/app.js"
   },
   "scripts": {
     "build": "tsc",
