@@ -1,16 +1,21 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import * as ec2 from 'aws-cdk-lib/aws-ec2';
+import { Vpc } from 'aws-cdk-lib/aws-ec2';
 
 export class CdkTemplateTypescriptStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkTemplateTypescriptQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    const vpc = new Vpc(this, 'MainVpc', {
+      maxAzs: 2,
+      subnetConfiguration: [
+        {
+          cidrMask: 24,
+          name: 'tf-demo',
+          subnetType: ec2.SubnetType.PUBLIC,
+        }
+      ]
+    });
   }
 }
