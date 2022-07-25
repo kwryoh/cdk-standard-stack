@@ -16,7 +16,9 @@ export class Ec2DemoStack extends Stack {
       machineImage: new ec2.AmazonLinuxImage({
         generation: ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
         kernel: ec2.AmazonLinuxKernel.KERNEL5_X,
-      })
+      }),
+      keyName: 'rkw_home',
     })
+    instance.connections.allowFromAnyIpv4(ec2.Port.tcp(22));
   }
 }
