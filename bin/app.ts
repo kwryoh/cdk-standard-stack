@@ -10,5 +10,7 @@ const vpc = new VpcDemoStack(app, 'VpcDemoStack', {
 });
 
 new Ec2DemoStack(app, 'Ec2DemoStack', {
-  env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION }
+  env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
+  vpc: vpc.vpc,
+  keyname: 'rkw_home',
 });
